@@ -3,9 +3,7 @@ package com.quizapp.serviceImpl;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.quizapp.model.AnswerResponse;
-import com.quizapp.model.Question;
-import com.quizapp.model.QuestionResponse;
+import com.quizapp.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.*;
@@ -75,9 +73,9 @@ public class QuestionServiceImpl implements IQuestionService{
     @Override
     public List<String> getAnswers(String[] questionId){
 
-        QuestionResponse getAnswerSet = getAnswerSet();
+        QuestionAnswerResponse getAnswerSet = getAnswerSet();
         List<String> answers = new ArrayList<String>();
-        for (Question q:getAnswerSet.getData()) {
+        for (QuestionWithAnswer q:getAnswerSet.getData()) {
             answers.add(q.getAnswer());
         }
 
@@ -85,9 +83,9 @@ public class QuestionServiceImpl implements IQuestionService{
         return answers;
     }
 
-    public QuestionResponse getAnswerSet(){
+    public QuestionAnswerResponse getAnswerSet(){
 
-        QuestionResponse response ;
+        QuestionAnswerResponse response ;
 
         log.info("flow for mock : getFeaturePartner");
 
@@ -98,7 +96,7 @@ public class QuestionServiceImpl implements IQuestionService{
 
         Gson gson = new Gson();
 
-        response = gson.fromJson(reader, QuestionResponse.class);
+        response = gson.fromJson(reader, QuestionAnswerResponse.class);
 
         log.info("response"+response);
 

@@ -10,11 +10,10 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Question {//////////////////
+public class Question {
 private int QnID;
 private String ImageName;
 private String Qn;
-
 private String[] Options;
 
     public String[] getOptions() {
@@ -24,8 +23,6 @@ private String[] Options;
     public void setOptions(String[] options) {
         Options = options;
     }
-
-   private String Answer;
 
     public int getQnID() {
         return QnID;
@@ -51,13 +48,4 @@ private String[] Options;
         Qn = qn;
     }
 
-
-
-    public String getAnswer() {
-        return Answer;
-    }
-
-    public void setAnswer(String answer) {
-        Answer = answer;
-    }
 }
