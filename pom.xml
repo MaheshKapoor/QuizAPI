@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.4.RELEASE</version>
+		<version>1.4.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -23,6 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Dalston.SR2</spring-cloud.version>
+		<start-class>quizapp.src.main</start-class>
 	</properties>
 
 	<dependencies>
@@ -30,10 +31,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jersey</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+
         <!--only for Pushing code
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -95,7 +93,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>v1</finalName>
+		<finalName>${project.artifactId}-${project.version}</finalName>
 	</build>
 
 
