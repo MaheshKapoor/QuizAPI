@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.QueryParam;
+
 @RestController
 public class UserService {
 
@@ -17,7 +19,7 @@ public class UserService {
 
     @RequestMapping(value="/validateAccount", method=RequestMethod.POST)
     @CrossOrigin
-    public @ResponseBody User getDetails(@RequestBody String[] userDetail) throws Exception {
+    public @ResponseBody User getDetails(@RequestBody String[] userDetail, @QueryParam("id") String category ) throws Exception {
         User user = new User();
         if(userDetail != null){
 

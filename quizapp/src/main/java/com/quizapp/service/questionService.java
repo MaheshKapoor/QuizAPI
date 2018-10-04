@@ -27,9 +27,9 @@ public class questionService {
     @RequestMapping(value="/questions", method= RequestMethod.GET)
     @CrossOrigin
     public @ResponseBody
-    List<Question> getDetails(@QueryParam("category") String category ) throws Exception {
+    List<Question> getDetails(@RequestParam("id") final String questionSetId ) throws Exception {
 
-        QuestionResponse questions = questionService.getQuestions(category);
+        QuestionResponse questions = questionService.getQuestions(questionSetId);
         log.debug("setting question :" + questions );
         return questions.getData();
     }
@@ -38,9 +38,9 @@ public class questionService {
     @RequestMapping(value="/answers", method= RequestMethod.POST)
     @CrossOrigin
     public @ResponseBody
-    List<String> getDetails(@RequestBody  String[] questId ) throws Exception {
+    List<String> getDetails(@RequestBody  String[] questId, @RequestParam("id") final String questionSetId) throws Exception {
 
-        List<String> answers = questionService.getAnswers(questId);
+        List<String> answers = questionService.getAnswers(questId, questionSetId);
         log.debug("setting question :" + answers );
         return answers;
     }
