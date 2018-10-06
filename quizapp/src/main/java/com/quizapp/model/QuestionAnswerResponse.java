@@ -6,13 +6,13 @@ import java.util.List;
  * Created by abc on 10/4/2018.
  */
 public class QuestionAnswerResponse {
-    private List<QuestionWithAnswer> data;
+    private QuestionData data;
 
-    public List<QuestionWithAnswer> getData() {
+    public QuestionData getData() {
         return data;
     }
 
-    public void setData(List<QuestionWithAnswer> data) {
+    public void setData(QuestionData data) {
         this.data = data;
     }
 }
