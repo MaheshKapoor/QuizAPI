@@ -19,16 +19,18 @@ public class UserService {
 
     @RequestMapping(value="/validateAccount", method=RequestMethod.POST)
     @CrossOrigin
-    public @ResponseBody User getDetails(@RequestBody String[] userDetail, @QueryParam("id") String category ) throws Exception {
+    public @ResponseBody User getDetails(@RequestBody String userDetail, @RequestParam("id") String category ) throws Exception {
         User user = new User();
-        if(userDetail != null){
-
-           if ("mahesh".equalsIgnoreCase(userDetail[0]) || "nono".equalsIgnoreCase(userDetail[0])){
-                log.debug("logged in successfully");
-                user.setName(userDetail[0]);
-                user.setValidUser(true);
-           }
-       }
+        user.setName(userDetail);
+        user.setValidUser(true);
+//        if(userDetail != null){
+//
+//           if ("mahesh".equalsIgnoreCase(userDetail) || "nono".equalsIgnoreCase(userDetail)){
+//                log.debug("logged in successfully");
+//                user.setName(userDetail);
+//                user.setValidUser(true);
+//           }
+//       }
        log.debug("setting email :" + user.getEmail()+ " for :"+user.getName() );
         return user;
     }
